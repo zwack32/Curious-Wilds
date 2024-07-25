@@ -8,6 +8,10 @@
 [node name="TestScene" type="Node2D"]
 position = Vector2(431, 185)
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("2_h1jiq")
+
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_1pgea")
 
@@ -44,3 +48,5 @@ shape = SubResource("CircleShape2D_0ndem")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture = ExtResource("2_h1jiq")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
