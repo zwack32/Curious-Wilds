@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://dc6owxn1fxcli"]
+[gd_scene load_steps=2 format=3 uid="uid://dc6owxn1fxcli"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_1pgea"]
 
 [node name="TestScene" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_1pgea")
