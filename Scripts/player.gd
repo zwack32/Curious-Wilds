@@ -10,15 +10,14 @@ var speed = 200
 
 @onready var energy_bar = $Energy_Bar
 
-#move to another script ASAP
-var time = 0 #midnight
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print ("test")
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	#player_temperature = game_manager.gettemperature + gear.temperature_boost
 	check_vitals(delta)
 	move(delta)
 	energy_bar.value = energy
@@ -39,8 +38,6 @@ func move(delta):
 	
 
 func check_vitals(delta):
-	time += delta
-	
 	energy -= 2000/1440 * delta
 	
 	water -= 800/1440 * delta
