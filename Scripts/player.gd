@@ -3,7 +3,7 @@ extends CharacterBody2D
 #basic game loop variables
 var health = 100
 var player_temperature = 70
-var water = 100
+var water = 800
 var energy = 2000
 
 #move to other script ASAP
@@ -16,8 +16,24 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	time += delta * 4
+	time += delta
 	
-	energy -= 2000/1440 * delta * 4
+	energy -= 2000/1440 * delta
 	
-	print (energy)
+	water -= 800/1440 * delta
+	
+	if player_temperature > 90:
+		water -= 100/1440 * delta
+	if player_temperature < 50:
+		energy -= 100/1440 * delta
+	if player_temperature > 100:
+		water -= 100/1440 * delta
+		health -= 20/1440 * delta
+	if player_temperature < 30:
+		energy -= 100/1440 * delta
+		health -= 20/1440 * delta
+	
+	if energy < 200:
+		health -= 10/1440
+	if water < 200:
+		health -= 25/1440
