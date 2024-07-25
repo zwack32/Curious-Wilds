@@ -2,12 +2,15 @@ extends CharacterBody2D
 
 #basic game loop variables
 var health = 100
-var player_temperature = 70
-var water = 800
-var energy = 2000
+var player_temperature = 70 #freedom units
+var water = 800 #centicups
+var energy = 2000 #Kcals
 
 var speed = 200
 
+@onready var health_bar = $Health_Bar
+@onready var temperature_bar = $Temperature_Bar
+@onready var water_bar = $Water_Bar
 @onready var energy_bar = $Energy_Bar
 
 # Called when the node enters the scene tree for the first time.
@@ -20,7 +23,7 @@ func _process(delta):
 	#player_temperature = game_manager.gettemperature + gear.temperature_boost
 	check_vitals(delta)
 	move(delta)
-	energy_bar.value = energy
+	update_bars()
 
 func move(delta):
 	velocity = Vector2.ZERO
@@ -57,3 +60,9 @@ func check_vitals(delta):
 		health -= 10/1440
 	if water < 200:
 		health -= 25/1440
+		
+func update_bars():
+	health_bar.value = health
+	temperature_bar.value = player_temperature
+	water_bar.value = water
+	energy_bar.value = energy

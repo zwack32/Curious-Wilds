@@ -11,6 +11,27 @@ position = Vector2(431, 185)
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_1pgea")
 
+[node name="Health_Bar" type="ProgressBar" parent="Player"]
+offset_right = 4.0
+offset_bottom = 27.0
+fill_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Temperature_Bar" type="ProgressBar" parent="Player"]
+offset_right = 4.0
+offset_bottom = 27.0
+min_value = -40.0
+max_value = 200.0
+fill_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Water_Bar" type="ProgressBar" parent="Player"]
+offset_right = 4.0
+offset_bottom = 27.0
+max_value = 800.0
+fill_mode = 2
+metadata/_edit_use_anchors_ = true
+
 [node name="Energy_Bar" type="ProgressBar" parent="Player"]
 offset_right = 4.0
 offset_bottom = 27.0
