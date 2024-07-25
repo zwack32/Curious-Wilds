@@ -6,9 +6,11 @@ var player_temperature = 70
 var water = 800
 var energy = 2000
 
+var speed = 200
+
 @onready var energy_bar = $Energy_Bar
 
-#move to other script ASAP
+#move to another script ASAP
 var time = 0 #midnight
 
 # Called when the node enters the scene tree for the first time.
@@ -22,8 +24,20 @@ func _process(delta):
 	energy_bar.value = energy
 
 func move(delta):
-	pass
+	velocity = Vector2.ZERO
 	
+	if Input.is_action_pressed("ui_up"):
+		velocity.y -= 1
+	if Input.is_action_pressed("ui_down"):
+		velocity.y += 1
+	if Input.is_action_pressed("ui_left"):
+		velocity.x -= 1
+	if Input.is_action_pressed("ui_right"):
+		velocity.x += 1
+	
+	position += velocity.normalized() * speed * delta
+	
+
 func check_vitals(delta):
 	time += delta
 	

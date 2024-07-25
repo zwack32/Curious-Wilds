@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dc6owxn1fxcli"]
+[gd_scene load_steps=4 format=3 uid="uid://dc6owxn1fxcli"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_1pgea"]
+[ext_resource type="Texture2D" uid="uid://bg6idsj2dl8e3" path="res://icon.svg" id="2_h1jiq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ndem"]
 
 [node name="TestScene" type="Node2D"]
 position = Vector2(431, 185)
@@ -14,3 +17,9 @@ offset_bottom = 27.0
 max_value = 2000.0
 fill_mode = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CircleShape2D_0ndem")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_h1jiq")
