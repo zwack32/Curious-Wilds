@@ -6,6 +6,8 @@ var player_temperature = 70
 var water = 800
 var energy = 2000
 
+@onready var energy_bar = $Energy_Bar
+
 #move to other script ASAP
 var time = 0 #midnight
 
@@ -13,9 +15,16 @@ var time = 0 #midnight
 func _ready():
 	print ("test")
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	check_vitals(delta)
+	move(delta)
+	energy_bar.value = energy
+
+func move(delta):
+	pass
+	
+func check_vitals(delta):
 	time += delta
 	
 	energy -= 2000/1440 * delta
