@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://f882vxy3det"]
+
+[ext_resource type="Script" path="res://Scripts/inventory_tile.gd" id="1_lk54k"]
+
+[node name="InventoryTile" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lk54k")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
