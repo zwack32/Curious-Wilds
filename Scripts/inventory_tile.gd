@@ -11,13 +11,14 @@ func _ready():
 func _process(delta):
 	pass
 
-func can_drop_data(_at_position: Vector2, data: Variant) -> bool:
+func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	print("CAN")
 	var new_inv = Inventory.inventory_place_with_id(inventory.inventory, int(grid_position.x), int(grid_position.y), data)
 	var has_overlap = Inventory.inventory_has_overlap(new_inv)
 	print(has_overlap)
-	return has_overlap
+	return true
+	# return has_overlap
 
-func drop_data(_at_position: Vector2, data: Variant):
+func _drop_data(_at_position: Vector2, data: Variant):
 	print("DROP", data)
 
