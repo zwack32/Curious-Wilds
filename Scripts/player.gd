@@ -73,3 +73,18 @@ func update_temp():
 	#player_temperature = game_manager.get(temperature) + clothing_temperature
 	#david is supposed to make this work
 	pass
+
+func _on_mountain_area_body_entered(body):
+	print("mountain!!!")
+
+
+func _on_forest_area_body_entered(body):
+	print("forest!!!")
+
+
+func _on_grass_area_body_entered(body):
+	print("grass!!!")
+
+
+func _on_desert_area_body_entered(body):
+	print("desert!!!")

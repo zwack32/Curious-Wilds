@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dc6owxn1fxcli"]
+[gd_scene load_steps=11 format=3 uid="uid://dc6owxn1fxcli"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_a1kss"]
 [ext_resource type="Texture2D" uid="uid://d2nntyt5lgvlc" path="res://Art/forest.jpeg" id="2_xgi1o"]
@@ -7,28 +7,74 @@
 [ext_resource type="Texture2D" uid="uid://ckkqfx7mi5hyd" path="res://Art/sand.jpeg" id="5_4qpcc"]
 [ext_resource type="PackedScene" uid="uid://cb6ba7lhwyju7" path="res://Scenes/player.tscn" id="6_7eo8h"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6diqj"]
+size = Vector2(25.0093, 25.0093)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wte3"]
+size = Vector2(100, 70.0272)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpj4h"]
+size = Vector2(119.977, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qgnx"]
+size = Vector2(736.286, 736)
+
 [node name="TestScene" type="Node2D"]
 position = Vector2(431, 185)
 script = ExtResource("1_a1kss")
 
 [node name="Forest" type="Sprite2D" parent="."]
-position = Vector2(-21.9998, 21.9998)
-scale = Vector2(0.5376, 0.5376)
+position = Vector2(6.99999, 9.50003)
+scale = Vector2(0.5144, 0.5276)
 texture = ExtResource("2_xgi1o")
 
-[node name="Hills" type="Sprite2D" parent="."]
-position = Vector2(1285, -1292)
+[node name="ForestArea" type="Area2D" parent="Forest"]
+
+[node name="ForestCollisionShape" type="CollisionShape2D" parent="Forest/ForestArea"]
+position = Vector2(0.464783, -0.464661)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_6diqj")
+
+[node name="Grass" type="Sprite2D" parent="."]
+position = Vector2(1293, -1293)
 scale = Vector2(1.286, 1.83714)
 texture = ExtResource("3_kykws")
 
+[node name="GrassArea" type="Area2D" parent="Grass"]
+
+[node name="GrassCollisionShape" type="CollisionShape2D" parent="Grass/GrassArea"]
+position = Vector2(0, 0.135986)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_8wte3")
+
 [node name="Mountain" type="Sprite2D" parent="."]
-position = Vector2(1296.25, 35.2499)
-scale = Vector2(1.10458, 1.10458)
+position = Vector2(1293.12, 9.50001)
+scale = Vector2(1.07146, 1.09917)
 texture = ExtResource("3_rm4e5")
 
+[node name="MountainArea" type="Area2D" parent="Mountain"]
+
+[node name="MountainCollisionShape" type="CollisionShape2D" parent="Mountain/MountainArea"]
+position = Vector2(0.112793, 0)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_tpj4h")
+
 [node name="Desert" type="Sprite2D" parent="."]
-position = Vector2(-19, -1302)
+position = Vector2(7, -1293)
 scale = Vector2(1.74728, 1.74728)
 texture = ExtResource("5_4qpcc")
 
+[node name="DesertArea" type="Area2D" parent="Desert"]
+
+[node name="DesertCollisionShape" type="CollisionShape2D" parent="Desert/DesertArea"]
+position = Vector2(0.143082, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_4qgnx")
+
 [node name="Player" parent="." instance=ExtResource("6_7eo8h")]
+position = Vector2(-22, 138)
+
+[connection signal="body_entered" from="Forest/ForestArea" to="Player" method="_on_forest_area_body_entered"]
+[connection signal="body_entered" from="Grass/GrassArea" to="Player" method="_on_grass_area_body_entered"]
+[connection signal="body_entered" from="Mountain/MountainArea" to="Player" method="_on_mountain_area_body_entered"]
+[connection signal="body_entered" from="Desert/DesertArea" to="Player" method="_on_desert_area_body_entered"]
