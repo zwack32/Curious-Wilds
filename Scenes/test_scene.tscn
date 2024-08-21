@@ -7,6 +7,7 @@
 
 [node name="TestScene" type="Node2D"]
 position = Vector2(431, 185)
+script = ExtResource("1_3vf3m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(10, 10)

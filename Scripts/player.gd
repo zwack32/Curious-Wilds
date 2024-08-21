@@ -1,17 +1,20 @@
 extends CharacterBody2D
 
 #basic game loop variables
-var health = 100
+var health = 100 #arbitrary
 var player_temperature = 70 #freedom units
 var water = 800 #centicups
 var energy = 2000 #Kcals
 
 var speed = 200
 
+var clothing_temperature = 0 #naked i guess
+
 @onready var health_bar = $Health_Bar
 @onready var temperature_bar = $Temperature_Bar
 @onready var water_bar = $Water_Bar
 @onready var energy_bar = $Energy_Bar
+@onready var game_manager = $TestScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,6 +24,7 @@ func _ready():
 func _process(delta):
 	
 	#player_temperature = game_manager.gettemperature + gear.temperature_boost
+	update_temp()
 	check_vitals(delta)
 	move(delta)
 	update_bars()
@@ -66,3 +70,8 @@ func update_bars():
 	temperature_bar.value = player_temperature
 	water_bar.value = water
 	energy_bar.value = energy
+
+func update_temp():
+	#player_temperature = game_manager.get(temperature) + clothing_temperature
+	#david is supposed to make this work
+	pass
