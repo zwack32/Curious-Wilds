@@ -1,53 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://dc6owxn1fxcli"]
+[gd_scene load_steps=7 format=3 uid="uid://dc6owxn1fxcli"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_3vf3m"]
-[ext_resource type="Texture2D" uid="uid://bg6idsj2dl8e3" path="res://icon.svg" id="2_h1jiq"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_0ndem"]
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_a1kss"]
+[ext_resource type="Texture2D" uid="uid://d2nntyt5lgvlc" path="res://Art/forest.jpeg" id="2_xgi1o"]
+[ext_resource type="Texture2D" uid="uid://egf6sap242rj" path="res://Art/grass.webp" id="3_kykws"]
+[ext_resource type="Texture2D" uid="uid://cv0adc6jf6v52" path="res://Art/mountains.png.webp" id="3_rm4e5"]
+[ext_resource type="Texture2D" uid="uid://ckkqfx7mi5hyd" path="res://Art/sand.jpeg" id="5_4qpcc"]
+[ext_resource type="PackedScene" uid="uid://cb6ba7lhwyju7" path="res://Scenes/player.tscn" id="6_7eo8h"]
 
 [node name="TestScene" type="Node2D"]
 position = Vector2(431, 185)
-script = ExtResource("1_3vf3m")
+script = ExtResource("1_a1kss")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(10, 10)
-texture = ExtResource("2_h1jiq")
+[node name="Forest" type="Sprite2D" parent="."]
+position = Vector2(-21.9998, 21.9998)
+scale = Vector2(0.5376, 0.5376)
+texture = ExtResource("2_xgi1o")
 
-[node name="Player" type="CharacterBody2D" parent="."]
-script = ExtResource("1_3vf3m")
+[node name="Hills" type="Sprite2D" parent="."]
+position = Vector2(1285, -1292)
+scale = Vector2(1.286, 1.83714)
+texture = ExtResource("3_kykws")
 
-[node name="Health_Bar" type="ProgressBar" parent="Player"]
-offset_right = 4.0
-offset_bottom = 27.0
-fill_mode = 2
-metadata/_edit_use_anchors_ = true
+[node name="Mountain" type="Sprite2D" parent="."]
+position = Vector2(1296.25, 35.2499)
+scale = Vector2(1.10458, 1.10458)
+texture = ExtResource("3_rm4e5")
 
-[node name="Temperature_Bar" type="ProgressBar" parent="Player"]
-offset_right = 4.0
-offset_bottom = 27.0
-min_value = -40.0
-max_value = 200.0
-fill_mode = 2
-metadata/_edit_use_anchors_ = true
+[node name="Desert" type="Sprite2D" parent="."]
+position = Vector2(-19, -1302)
+scale = Vector2(1.74728, 1.74728)
+texture = ExtResource("5_4qpcc")
 
-[node name="Water_Bar" type="ProgressBar" parent="Player"]
-offset_right = 4.0
-offset_bottom = 27.0
-max_value = 800.0
-fill_mode = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Energy_Bar" type="ProgressBar" parent="Player"]
-offset_right = 4.0
-offset_bottom = 27.0
-max_value = 2000.0
-fill_mode = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CircleShape2D_0ndem")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("2_h1jiq")
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Player" parent="." instance=ExtResource("6_7eo8h")]

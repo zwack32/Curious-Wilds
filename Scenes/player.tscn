@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb6ba7lhwyju7"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_noups"]
+[ext_resource type="Texture2D" uid="uid://bg6idsj2dl8e3" path="res://icon.svg" id="2_p8mhu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x1dyk"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_noups")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_right = 4.0
+offset_bottom = 27.0
+fill_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TemperatureBar" type="ProgressBar" parent="."]
+offset_right = 4.0
+offset_bottom = 27.0
+min_value = -40.0
+max_value = 200.0
+fill_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="WaterBar" type="ProgressBar" parent="."]
+offset_right = 4.0
+offset_bottom = 27.0
+max_value = 800.0
+fill_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="EnergyBar" type="ProgressBar" parent="."]
+offset_right = 4.0
+offset_bottom = 27.0
+max_value = 2000.0
+fill_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x1dyk")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_p8mhu")
+
+[node name="PlayerCaerma" type="Camera2D" parent="."]
