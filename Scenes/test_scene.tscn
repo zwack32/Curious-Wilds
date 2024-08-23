@@ -68,7 +68,6 @@ texture = ExtResource("5_4qpcc")
 
 [node name="DesertCollisionShape" type="CollisionShape2D" parent="Desert/DesertArea"]
 position = Vector2(0.143082, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_4qgnx")
 
 [node name="Player" parent="." instance=ExtResource("6_7eo8h")]

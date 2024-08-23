@@ -9,6 +9,7 @@ var energy = 2000.0 #Kcals
 var speed = 200.0
 
 var clothing_temperature = 0.0 #naked for now i guess
+var day_length = 1440 #in seconds #eventually get this from game_manager
 
 @onready var health_bar = $HealthBar
 @onready var temperature_bar = $TemperatureBar
@@ -43,25 +44,25 @@ func move(delta):
 	position += velocity.normalized() * speed * delta
 
 func check_vitals(delta):
-	energy -= 2000/1440 * delta
+	energy -= 2000/day_length * delta
 	
-	water -= 800/1440 * delta
+	water -= 800/day_length * delta
 	
 	if player_temperature > 90:
-		water -= 100/1440 * delta
+		water -= 100/day_length * delta
 	if player_temperature < 50:
-		energy -= 100/1440 * delta
+		energy -= 100/day_length * delta
 	if player_temperature > 100:
-		water -= 100/1440 * delta
-		health -= 20/1440 * delta
+		water -= 100/day_length * delta
+		health -= 20/day_length * delta
 	if player_temperature < 30:
-		energy -= 100/1440 * delta
-		health -= 20/1440 * delta
+		energy -= 100/day_length * delta
+		health -= 20/day_length * delta
 	
 	if energy < 200:
-		health -= 10/1440
+		health -= 10/day_length
 	if water < 200:
-		health -= 25/1440
+		health -= 25/day_length
 		
 func update_bars():
 	health_bar.value = health
