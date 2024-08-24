@@ -73,7 +73,11 @@ shape = SubResource("RectangleShape2D_4qgnx")
 [node name="Player" parent="." instance=ExtResource("6_7eo8h")]
 position = Vector2(-22, 138)
 
+[connection signal="body_entered" from="Forest/ForestArea" to="." method="_on_forest_area_body_entered"]
 [connection signal="body_entered" from="Forest/ForestArea" to="Player" method="_on_forest_area_body_entered"]
+[connection signal="body_entered" from="Grass/GrassArea" to="." method="_on_grass_area_body_entered"]
 [connection signal="body_entered" from="Grass/GrassArea" to="Player" method="_on_grass_area_body_entered"]
+[connection signal="body_entered" from="Mountain/MountainArea" to="." method="_on_mountain_area_body_entered"]
 [connection signal="body_entered" from="Mountain/MountainArea" to="Player" method="_on_mountain_area_body_entered"]
+[connection signal="body_entered" from="Desert/DesertArea" to="." method="_on_desert_area_body_entered"]
 [connection signal="body_entered" from="Desert/DesertArea" to="Player" method="_on_desert_area_body_entered"]
