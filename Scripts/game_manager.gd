@@ -5,6 +5,8 @@ var temperature = 0 #in freeedom units
 var day_length = 1440 #in seconds
 var region = "string"
 
+@onready var nightshade = $NightShade
+
 func _process(delta):
 	update_time(delta)
 	update_region()
@@ -16,8 +18,11 @@ func update_time(delta):
 	
 	if time < day_length/2:
 		print ("am")
+		nightshade.hide()
+		
 	elif time > day_length/2:
 		print("pm")
+		nightshade.show()
 
 func update_region():
 	if region == "desert":

@@ -73,6 +73,13 @@ shape = SubResource("RectangleShape2D_4qgnx")
 [node name="Player" parent="." instance=ExtResource("6_7eo8h")]
 position = Vector2(-22, 138)
 
+[node name="NightShade" type="ColorRect" parent="."]
+offset_left = -639.0
+offset_top = -1937.0
+offset_right = 1937.0
+offset_bottom = 671.0
+color = Color(0, 0, 0, 0.568627)
+
 [connection signal="body_entered" from="Forest/ForestArea" to="." method="_on_forest_area_body_entered"]
 [connection signal="body_entered" from="Forest/ForestArea" to="Player" method="_on_forest_area_body_entered"]
 [connection signal="body_entered" from="Grass/GrassArea" to="." method="_on_grass_area_body_entered"]
