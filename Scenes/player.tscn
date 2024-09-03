@@ -8,34 +8,6 @@
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_noups")
 
-[node name="HealthBar" type="ProgressBar" parent="."]
-offset_right = 4.0
-offset_bottom = 27.0
-fill_mode = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="TemperatureBar" type="ProgressBar" parent="."]
-offset_right = 4.0
-offset_bottom = 27.0
-min_value = -40.0
-max_value = 200.0
-fill_mode = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="WaterBar" type="ProgressBar" parent="."]
-offset_right = 4.0
-offset_bottom = 27.0
-max_value = 800.0
-fill_mode = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="EnergyBar" type="ProgressBar" parent="."]
-offset_right = 4.0
-offset_bottom = 27.0
-max_value = 2000.0
-fill_mode = 2
-metadata/_edit_use_anchors_ = true
-
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_x1dyk")
 
@@ -43,3 +15,35 @@ shape = SubResource("CircleShape2D_x1dyk")
 texture = ExtResource("2_p8mhu")
 
 [node name="PlayerCaerma" type="Camera2D" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="PlayerCaerma"]
+offset_left = -560.0
+offset_top = -312.0
+offset_right = -544.0
+offset_bottom = -208.0
+fill_mode = 2
+
+[node name="TemperatureBar" type="ProgressBar" parent="PlayerCaerma"]
+offset_left = -560.0
+offset_top = -192.0
+offset_right = -464.0
+offset_bottom = -176.0
+min_value = -40.0
+max_value = 200.0
+show_percentage = false
+
+[node name="WaterBar" type="ProgressBar" parent="PlayerCaerma"]
+offset_left = -520.0
+offset_top = -312.0
+offset_right = -504.0
+offset_bottom = -208.0
+max_value = 1200.0
+fill_mode = 2
+
+[node name="EnergyBar" type="ProgressBar" parent="PlayerCaerma"]
+offset_left = -480.0
+offset_top = -312.0
+offset_right = -464.0
+offset_bottom = -208.0
+max_value = 30000.0
+fill_mode = 2
